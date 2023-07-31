@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class OrderLine {
     @Embedded
-    private ProductId product;
+    private ProductId productId;
 
     @Convert(converter = MoneyConverter.class)
     @Column
@@ -31,10 +31,14 @@ public class OrderLine {
     private Money amounts;
 
     @Builder
-    public OrderLine(ProductId product, Money price, int quantity, Money amounts) {
-        this.product = product;
+    public OrderLine(ProductId productId, Money price, int quantity) {
+        this.productId = productId;
         this.price = price;
         this.quantity = quantity;
-        this.amounts = amounts;
+        this.amounts = calculateAmounts();
+    }
+
+    public Money calculateAmounts() {
+        return price.multiply(quantity);
     }
 }
