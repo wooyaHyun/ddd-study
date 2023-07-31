@@ -9,7 +9,7 @@ public enum OrderState {
     SHIPPED("상품발송"),
     DELIVERING("배송중"),
     DELIVERY_COMPLETED("배송완료"),
-    CANCELD("취소"),
+    CANCELED("취소"),
     ;
 
     private final String title;
