@@ -1,4 +1,4 @@
-package com.example.dddstudy.domain.order;
+package com.example.dddstudy.order.command.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

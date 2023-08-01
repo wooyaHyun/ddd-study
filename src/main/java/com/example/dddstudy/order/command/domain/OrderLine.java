@@ -1,8 +1,8 @@
-package com.example.dddstudy.domain.order;
+package com.example.dddstudy.order.command.domain;
 
 import com.example.dddstudy.common.jpa.MoneyConverter;
 import com.example.dddstudy.common.model.Money;
-import com.example.dddstudy.domain.catalog.product.ProductId;
+import com.example.dddstudy.catalog.product.ProductId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;

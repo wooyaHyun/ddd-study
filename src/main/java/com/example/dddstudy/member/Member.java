@@ -1,9 +1,8 @@
-package com.example.dddstudy.domain.member;
+package com.example.dddstudy.member;
 
-import com.example.dddstudy.domain.BaseEntity;
+import com.example.dddstudy.common.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
