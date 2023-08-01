@@ -1,4 +1,4 @@
-package com.example.dddstudy.domain.member;
+package com.example.dddstudy.member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

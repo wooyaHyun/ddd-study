@@ -1,4 +1,4 @@
-package com.example.dddstudy.domain.order;
+package com.example.dddstudy.order.command.domain;
 
 import com.example.dddstudy.common.model.Address;
 import jakarta.persistence.*;

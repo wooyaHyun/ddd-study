@@ -1,8 +1,7 @@
-package com.example.dddstudy.domain.catalog.product;
+package com.example.dddstudy.catalog.product;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Getter

@@ -1,4 +1,4 @@
-package com.example.dddstudy.config;
+package com.example.dddstudy.config.jpa;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

@@ -1,4 +1,4 @@
-package com.example.dddstudy.domain.catalog.product;
+package com.example.dddstudy.catalog.product;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

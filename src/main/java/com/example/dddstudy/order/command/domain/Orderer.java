@@ -1,12 +1,10 @@
-package com.example.dddstudy.domain.order;
+package com.example.dddstudy.order.command.domain;
 
-import com.example.dddstudy.domain.member.Member;
-import com.example.dddstudy.domain.member.MemberId;
+import com.example.dddstudy.member.MemberId;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
