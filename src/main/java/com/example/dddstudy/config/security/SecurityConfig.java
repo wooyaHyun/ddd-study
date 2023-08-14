@@ -1,4 +1,5 @@
 package com.example.dddstudy.config.security;
+/*
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -23,6 +24,12 @@ public class SecurityConfig {
 
     public static final String AUTHCOOKIENAME = "AUTH";
 
+    private UserDetailsService userDetailsService;
+
+    public SecurityConfig(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
     @Autowired
     private DataSource dataSource;
 
@@ -43,7 +50,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.securityContext((securityContextConfig)
-                -> securityContextConfig.securityContextRepository()
+                -> securityContextConfig.securityContextRepository(new CookieSecurityContextRepository(userDetailsService()));
         );
 
         http.requestCache((requestCacheConfig)
@@ -67,9 +74,6 @@ public class SecurityConfig {
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )// 3번
-                .exceptionHandling((exceptionConfig) ->
-                        exceptionConfig.authenticationEntryPoint(unauthorizedEntryPoint).accessDeniedHandler(accessDeniedHandler)
-                ) // 401 403 관련 예외처리
                 .formLogin((formLogin) ->
                         formLogin
                                 .loginPage("/login")
@@ -88,8 +92,14 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Bean
+    public UserDetailsService userDetailsServiceBean() {
+        return
+    }
 
-    /*
+
+    */
+/*
     public final AuthenticationEntryPoint unauthorizedEntryPoint =
             (request, response, authException) -> {
                 ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "Spring security unauthorized...");
@@ -111,5 +121,7 @@ public class SecurityConfig {
                 writer.write(json);
                 writer.flush();
             };
-*/
+*//*
+
 }
+*/

@@ -1,5 +1,5 @@
 package com.example.dddstudy.config.security;
-
+/*
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -35,3 +35,4 @@ public class CustomAuthSuccessHandler implements AuthenticationSuccessHandler {
         return user.getUsername();
     }
 }
+*/
