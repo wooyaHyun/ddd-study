@@ -1,10 +1,11 @@
 package com.example.dddstudy.config.security;
-/*
+
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.DeferredSecurityContext;
 import org.springframework.security.core.context.SecurityContext;
@@ -22,17 +23,25 @@ import static com.example.dddstudy.config.security.SecurityConfig.AUTHCOOKIENAME
 
 
 @Slf4j
-@RequiredArgsConstructor
 public class CookieSecurityContextRepository implements SecurityContextRepository {//
 
-    private final UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     public SecurityContext loadContext(HttpRequestResponseHolder requestResponseHolder) {
-        return null;
+        SecurityContext sc = SecurityContextHolder.createEmptyContext();
+        Cookie cookie = findAuthCookie(requestResponseHolder.getRequest());
+        if (cookie != null) {
+            String id = getUserId(cookie);
+            if (id != null) {
+                populateAuthentication(sc, id);
+            }
+        }
+        return sc;
     }
 
-    @Override
+    /*@Override
     public DeferredSecurityContext loadDeferredContext(HttpServletRequest request) {
         SecurityContext sc = SecurityContextHolder.createEmptyContext();
         Cookie cookie = findAuthCookie(request);
@@ -44,7 +53,7 @@ public class CookieSecurityContextRepository implements SecurityContextRepositor
         }
         return (DeferredSecurityContext)sc;
     }
-
+*/
     private void populateAuthentication(SecurityContext sc, String id) {
         try {
             UserDetails userDetails = userDetailsService.loadUserByUsername(id);
@@ -85,4 +94,4 @@ public class CookieSecurityContextRepository implements SecurityContextRepositor
         return false;
     }
 }
-*/
+
